@@ -15,7 +15,7 @@ const Header = () => {
     >
       <div
         className="relative flex items-center h-10 
-      cursor-pointer my-auto"
+      cursor-pointer my-auto hover:scale-105"
       >
         <Image
           objectFit="contain"
@@ -26,9 +26,10 @@ const Header = () => {
         />
       </div>
 
-      <div className="flex items-center  sm:border-2 rounded-full py-2 md:shadow-sm">
+      <div className="flex items-center  sm:border-2 rounded-full py-2 md:shadow-sm hover:border-red-400">
         <input
-          className="flex-grow pl-5 bg-transparent outline-none text-sm text-gray-600 placeholder-gray-400"
+          className="flex-grow pl-5 bg-transparent outline-none text-sm text-gray-600
+           placeholder-gray-400"
           type="text"
           placeholder="Start your search"
         />
@@ -42,11 +43,13 @@ const Header = () => {
         className="flex items-center space-x-4 
       justify-end text-gray-500"
       >
-        <p className="hidden md:inline cursor-pointer">Become a host</p>
-        <GlobeAltIcon className="h-6 cursor-pointer" />
+        <p className="hidden md:inline cursor-pointer hover:text-red-400">
+          Become a host
+        </p>
+        <GlobeAltIcon className="h-6 cursor-pointer hover:text-red-400" />
         <div
           className="flex items-center space-x-2 
-        border-2 p-2 rounded-full"
+        border-2 p-2 rounded-full hover:bg-gray-300"
         >
           <MenuIcon className="h-6" />
           <UserCircleIcon className="h-6" />
