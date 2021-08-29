@@ -11,12 +11,15 @@ import {
 import "react-date-range/dist/styles.css"; // main style file
 import "react-date-range/dist/theme/default.css"; // theme css file
 import { DateRangePicker } from "react-date-range";
+import { signIn, signOut, useSession } from "next-auth/client";
 
 const Header = ({ placeholder }) => {
   const [searchInput, setSearchInput] = useState("");
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const [noOfGuests, setNoOfGuests] = useState(1);
+
+  const [session] = useSession();
 
   const router = useRouter();
 
@@ -84,11 +87,12 @@ const Header = ({ placeholder }) => {
       </div>
 
       <div
+        onClick={!session ? signIn : signOut}
         className="flex items-center space-x-4 
       justify-end text-gray-500"
       >
         <p className="hidden md:inline cursor-pointer hover:text-red-400">
-          Become a host
+          {session ? `Welcome, ${session.user.name}` : "Become a host"}
         </p>
         <GlobeAltIcon className="h-6 cursor-pointer hover:text-red-400" />
         <div
